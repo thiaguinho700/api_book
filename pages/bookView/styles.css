@@ -1,0 +1,360 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+:root {
+  --color-white_second: #f6ebcd;
+  --bg-main_color: #5ab2a6;
+  --color-yellow: #ffa300;
+  --color-white: #faf9f9;
+  --color-green: #57e723;
+  --color-blue: #044ddf;
+  --color-red: #f75c46;
+}
+
+body {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: var(--color-white);
+  background-image: url(../../../images/bgImage/Desktop\ -\ 11.png);
+}
+body {
+  height: 100vh;
+}
+
+.containerNavBar {
+  padding: 10px;
+  display: flex;
+  margin-bottom: 30px;
+  justify-content: space-between;
+  padding-left: 2pc;
+  padding-right: 2pc;
+  background-color: var(--bg-main_color);
+}
+
+.imageLogoSite {
+  width: 200px;
+  margin-left: 50px;
+}
+.iconLeft {
+  width: 32px;
+  margin-left: 40px;
+  margin-top: 30px;
+}
+
+.iconLeft:hover {
+  cursor: pointer;
+}
+.iconStar {
+  width: 20px;
+}
+.containerDataBook {
+  width: 100%;
+  display: flex;
+  margin-top: 26px;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.containerDataBookSub {
+  width: 100%;
+  display: flex;
+  margin-top: 20px;
+}
+
+.containerDataBook > img {
+  width: 345px;
+}
+
+.containerDataBookText {
+  width: 500px;
+  margin-left: 20px;
+}
+.subContainerDataBook {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: 50px;
+}
+.titleDataBook,
+.aboutBookText,
+.sectionAbout,
+.sectionTitle {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.aboutBookText {
+  width: 500px;
+}
+.sectionTitle {
+  margin-right: 10px;
+}
+.titleDataBook {
+  margin-bottom: 30px;
+}
+
+.containerCharacBook {
+  list-style: none;
+}
+
+.sectionAbout {
+  font-weight: 500;
+}
+#firstUpContainerCharacBook {
+  margin-bottom: 10px;
+}
+.subContainerBook {
+  display: flex;
+  flex-direction: row;
+}
+.containerSection {
+  width: 200px;
+  display: flex;
+  margin: 10px 10px 10px 0px;
+}
+
+.containerBottons {
+  margin-top: 5pc;
+  display: flex;
+}
+
+.borrowButton,
+.refundButton {
+  width: 220px;
+  height: 40px;
+  margin: 20px;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  color: white;
+}
+.borrowButton:hover,
+.refundButton:hover {
+  cursor: pointer;
+}
+.borrowButton {
+  background-color: var(--color-yellow);
+}
+.refundButton {
+  background-color: #b0b0b0;
+}
+.titleContainerReview,
+.titleContainerBorrowed {
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 20px 20px 20px 0px;
+}
+.containerReviews {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.containerReviewText {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.titleContainerReviewText {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  margin: 50px 50px 50px 30px;
+}
+.subContainerReviews > ul {
+  margin: 30px 0px 0px 50px;
+}
+.subContainerReviews > ul > li {
+  display: flex;
+}
+.contentReview {
+  width: 450px;
+  font-size: 21px;
+  margin-left: 12px;
+}
+.nameUserReview {
+  font-size: 20px;
+  margin-right: 20px;
+  font-family: Arial;
+}
+.subTitleContainer {
+  display: flex;
+  align-items: center;
+}
+.dateUserReview {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.subContainerBorroHis {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.subContainerBorroHis > ul {
+  list-style: none;
+}
+.subContainerBorroHis > ul > li {
+  display: flex;
+}
+
+.titleContainerBorrowed {
+  width: 100%;
+  display: flex;
+}
+.containerBorrowed {
+  width: 300px;
+  height: 200px;
+}
+.subContainerBorrowed {
+  display: flex;
+  align-items: center;
+  margin: 20px 0px 0px 20px;
+}
+.subContainerBorrowed > h2 {
+  font-size: 22px;
+  font-family: Arial;
+  font-weight: 400;
+  margin-right: 10px;
+}
+.subTitleContainerBorrowed > h3 {
+  font-size: 22px;
+  font-family: sans-serif;
+  font-weight: 600;
+}
+
+.textTitlePage {
+  font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--color-yellow);
+  font-size: 30px;
+}
+
+.containerTitle,
+.containerOptionsUser {
+  display: flex;
+  align-items: center;
+}
+.containerTitle > img {
+  width: 50px;
+}
+.containerOptionsUser > .iconUser {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 0.5px solid black;
+  background-color: var(--color-white);
+}
+.containerBookWidth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.containerMainBook {
+  width: 80%;
+  border-radius: 20px;
+  background-color: var(--color-white_second);
+}
+
+.containerFooter {
+  height: 230px;
+  margin-top: 4pc;
+  background: rgb(90, 178, 166);
+  background: linear-gradient(
+    180deg,
+    rgba(90, 178, 166, 1) 35%,
+    rgba(38, 76, 71, 1) 100%
+  );
+}
+
+.containerFooterUp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.containerFooterUp > p {
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+}
+
+.iconHeart {
+  width: 30px;
+  margin-left: 5px;
+  margin-right: 12px;
+}
+
+.containerFooterUp > p > span {
+  text-decoration: underline;
+}
+
+.containerFooterDown {
+  display: flex;
+  margin-top: 36px;
+  padding-left: 4pc;
+  padding-right: 4pc;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.containerFooterDown > h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--color-white_second);
+}
+
+.iconFooter {
+  width: 30px;
+  margin: 10px;
+}
+
+.iconFooter:hover {
+  cursor: pointer;
+}
+
+.nameAuthor > a {
+  margin-left: 12px;
+  color: var(--color-yellow);
+}
+
+.nameAuthor:hover {
+  cursor: pointer;
+}
+
+.containerIconsFooter {
+  display: flex;
+  align-items: center;
+}
+
+p {
+  font-weight: 600;
+  font-size: 21px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--color-white_second);
+}
+
+#prev {
+  left: 20px;
+  outline: 0;
+  border: none;
+  padding: 8px;
+  display: flex;
+  cursor: pointer;
+  border-radius: 50%;
+  position: absolute;
+  background: white;
+  align-content: center;
+  justify-content: center;
+  background-color: var(--color-red);
+}
+
+.iconArrow {
+  width: 40px;
+}
+.titleContainerBorrowed {
+  margin-bottom: 15px;
+}

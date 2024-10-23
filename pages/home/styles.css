@@ -1,0 +1,483 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+:root {
+  --color-white_second: #f6ebcd;
+  --bg-main_color: #5ab2a6;
+  --color-yellow: #ffa300;
+  --color-white: #faf9f9;
+  --color-green: #57E723;
+  --color-blue: #044ddf;
+  --color-red: #f75c46;
+}
+
+body {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: var(--color-white);
+  background-image: url(../../../images/bgImage/Desktop\ -\ 11.png);
+
+}
+
+.containerWelcome,
+.containerSelectTypeBook,
+.containerHighlightsBooks {
+  margin-left: 8pc;
+  margin-right: 8pc;
+}
+
+.containerNavBar {
+  padding: 10px;
+  display: flex;
+  padding-left: 8pc;
+  padding-right: 8pc;
+  background-color: var(--bg-main_color);
+  justify-content: space-between;
+}
+
+.textTitlePage {
+  font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--color-yellow);
+  font-size: 40px;
+}
+
+.containerTitle,
+.containerOptionsUser,
+.containerAllBooksTitle {
+  display: flex;
+  align-items: center;
+}
+.containerOptionsUser>.iconUser{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 0.5px solid black;
+  background-color: var(--color-white);
+}
+
+.containerAllBooksTitle {
+  width: 90%;
+  display: flex;
+  margin-top: 6pc;
+  align-items: baseline;
+}
+
+.containerAllBooksTitle>h3 {
+  font-size: 30px;
+  color: var(--color-yellow);
+  margin-right: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.containerAllBooksTitle>h3,
+span {
+  font-family: Arial;
+}
+
+.containerAllBooksTitle>span {
+  color: var(--color-blue);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.containerAllBooksTitle>span:hover {
+  cursor: pointer;
+}
+
+.textLogin,
+.textSignUp {
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--color-white);
+}
+
+.textLogin:hover,
+.textSignUp:hover {
+  cursor: pointer;
+}
+
+.containerSignup {
+  width: 120px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  border: 2px solid var(--color-yellow);
+  margin-left: 20px;
+}
+
+.containerWelcome {
+  margin-top: 4pc;
+  display: flex;
+  font-size: 40px;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.containerWelcome>img {
+  width: 400px;
+  border-radius: 15px;
+  border: 10px solid var(--bg-main_color);
+}
+
+.welcomeText {
+  font-size: 60px;
+  color: var(--color-yellow);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.containerWelcomeText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.containerWelcomeText>h5 {
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--color-red);
+}
+
+.containerTitleSelectTypeBook {
+  height: 0px;
+}
+
+.containerTitleSelectTypeBook>h2,
+.containerTitleInput>h2 {
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--color-yellow);
+}
+
+.containerSelectTypeBook {
+  display: flex;
+  flex-direction: column;
+}
+
+.subContainerIcons {
+  display: flex;
+  justify-content: center;
+}
+
+.subContainerIcons>ul {
+  margin-top: 5pc;
+  display: flex;
+  list-style: none;
+}
+
+.iconsType {
+  width: 142px;
+  display: flex;
+  border-radius: 19px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.iconsType>img,
+.iconsType>h4:hover {
+  cursor: pointer;
+}
+
+.iconsType>h4 {
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+}
+
+.iconsType:hover {
+
+  transition: 1.1s;
+  background-color: var(--color-white_second);
+}
+
+.containerTitleInput {
+  margin-top: 6pc;
+}
+
+.inputSearch {
+  border: 1px solid black;
+}
+
+.IconMag {
+  width: 28px;
+  padding-right: 15px;
+}
+
+.subContainerInput {
+  width: 300px;
+  margin-top: 3pc;
+  display: flex;
+  border-radius: 10px;
+  align-items: center;
+  border: 1px solid black;
+  padding-left: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.subContainerInput>input {
+  width: 290px;
+  border: none;
+  background-color: transparent;
+}
+
+.subContainerInput>input:focus {
+  outline: none;
+}
+
+.containerHighlightsBooks {
+  margin-top: 4pc;
+}
+
+.containerTitleHighBooks>h2 {
+  font-size: 24px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--color-red);
+}
+
+#wrapper {
+  width: 100%;
+  max-width: 1200px;
+  position: relative;
+}
+
+#carousel {
+  overflow: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+#carousel::-webkit-scrollbar {
+  height: 0;
+}
+
+#prev,
+#next {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background: white;
+  border: none;
+  padding: 8px;
+  border-radius: 50%;
+  outline: 0;
+  cursor: pointer;
+  position: absolute;
+}
+
+#prev {
+  top: 50%;
+  left: -6pc;
+  display: none;
+  transform: translate(50%, -50%);
+  background-color: var(--color-red);
+}
+
+#next {
+  top: 50%;
+  right: -6pc;
+  transform: translate(-50%, -50%);
+  background-color: var(--color-red);
+}
+
+#content {
+  display: grid;
+  grid-gap: 16px;
+  grid-auto-flow: column;
+  margin: auto;
+  box-sizing: border-box;
+}
+
+.item {
+  width: 280px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 10px;
+  background-color: var(--color-white_second);
+}
+
+.item>img {
+  width: 200px;
+}
+
+.subContainerIconsBooks {
+  height: 30pc;
+  display: flex;
+  justify-content: center;
+}
+
+.iconStar {
+  width: 20px;
+}
+
+.containerMainSub {
+  display: flex;
+  flex-direction: column;
+}
+
+.containerGraphics {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.containerMainSubTitle {}
+
+.containerMainSubTitle>h3 {
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--color-red);
+}
+
+#chart-containerV1,
+#chart-containerV2,
+#chart-containerV3,
+#chart-containerV4,
+#chart-containerV5,
+#chart-containerV6 {
+  width: 435px;
+  margin: 20px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  background-color: var(--color-white);
+}
+canvas{
+}
+
+.subContainerChart {
+  display: flex;
+}
+
+.containerBooks {
+  display: flex;
+}
+
+.containerBooks>li {
+  margin: 2pc;
+  display: flex;
+  flex-direction: row;
+}
+
+.containerBooks>li>img {
+  margin-right: 10px;
+}
+
+.containerBooks>li:hover {
+  cursor: pointer;
+}
+
+.subContainerTextAllBooks {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.subContainerTextAllBooks>span {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-green);
+}
+
+.subContaineAllBooks {
+  width: 90%;
+  border: 1px solid black;
+  background-color: var(--color-white);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.containerAllBooks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.containerFooter {
+  height: 230px;
+  margin-top: 4pc;
+  background: rgb(90, 178, 166);
+  background: linear-gradient(180deg, rgba(90, 178, 166, 1) 35%, rgba(38, 76, 71, 1) 100%);
+}
+
+.containerFooterUp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.containerFooterUp>p {
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+}
+
+.iconHeart {
+  width: 30px;
+  margin-left: 5px;
+  margin-right: 12px;
+}
+
+.containerFooterUp>p>span {
+  text-decoration: underline;
+}
+
+.containerFooterDown {
+  display: flex;
+  margin-top: 36px;
+  padding-left: 4pc;
+  padding-right: 4pc;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.containerFooterDown>h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--color-white_second);
+}
+
+.iconFooter {
+  width: 30px;
+  margin: 10px;
+}
+
+.iconFooter:hover {
+  cursor: pointer;
+}
+
+.nameAuthor>a {
+  margin-left: 12px;
+  color: var(--color-yellow);
+}
+
+.nameAuthor:hover {
+  cursor: pointer;
+}
+
+.containerIconsFooter {
+  display: flex;
+  align-items: center;
+}
+
+p {
+  font-weight: 600;
+  font-size: 21px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--color-white_second);
+}
