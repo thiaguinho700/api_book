@@ -9,7 +9,8 @@
     "render": "^0.1.4"
   },
   "scripts": {
-    "serve": "node ./server.js"
-    
+    "serve": "node ./server.js",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider vue-cli-service build"
+
   }
 }
