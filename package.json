@@ -9,8 +9,7 @@
     "render": "^0.1.4"
   },
   "scripts": {
-    "serve": "node ./server.js",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "serve": "node ./server.js"
+    
   }
 }
