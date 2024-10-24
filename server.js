@@ -27,7 +27,7 @@ mongoose.connect('mongodb+srv://thiagocontato1232:123123123@library.bayuj.mongod
 }).then(()=>console.log('Mongodb conectado')).catch(err=>console.error('Erro ao conectar no mongo',err));
 
 // Importação das rotas
-const bookRoutes = require('../code/livraria_api/books');
+const bookRoutes = require('./livraria_api/books');
 app.use('/api/books',bookRoutes); // irá retornar a rota dos livros
 app.use('/api/auth',authRoutes);
 // Define a porta do servidor
