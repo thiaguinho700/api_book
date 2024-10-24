@@ -15,7 +15,7 @@ app.use(cors({
 app.options('*', cors());
 app.use(express.json());
 
-const authRoutes = require('../code/livraria_api/authRoutes.js')
+const authRoutes = require('./livraria_api/authRoutes')
 
 // Conexão com o mongo db
 
