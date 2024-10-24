@@ -7,10 +7,5 @@
     "mongodb": "^6.10.0",
     "mongoose": "^8.7.2",
     "render": "^0.1.4"
-  },
-  "scripts": {
-    "serve": "node ./server.js",
-    "build": "NODE_OPTIONS=--openssl-legacy-provider vue-cli-service build"
-
   }
 }
