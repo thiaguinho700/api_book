@@ -10,7 +10,7 @@ const bodyParser = require('body-parser');
 const app = express();
 app.use(cors());
 app.use(cors({
-    origin: 'https://api-book-bw94.onrender.com'
+    origin: ['https://api-book-bw94.onrender.com', "http://localhost:8080/"]
   }));
 app.options('*', cors());
 app.use(express.json());
