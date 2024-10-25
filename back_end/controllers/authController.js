@@ -9,6 +9,8 @@ require("dotenv").config()
 // Função para registrar novos usuários
 exports.register = async (req, res) => {
 const { username, password, idEmployee,email} = req.body;
+console.log(body);
+
     try {
         // Verifica se o usuário já existe
         const existingUser = await User.findOne({ username });
@@ -31,8 +33,9 @@ const { username, password, idEmployee,email} = req.body;
 
 // Função para fazer login de usuários
 exports.login = async (req, res) => {
-    const { username, password } = req.body;
-
+    const { username, idEmployee ,password } = req.body;
+    console.log(username, idEmployee, password);
+    
     try {
         // Busca usuário pelo nome
         const user = await User.findOne({ username });
