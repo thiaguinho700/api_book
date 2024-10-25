@@ -9,7 +9,7 @@ require("dotenv").config()
 // Função para registrar novos usuários
 exports.register = async (req, res) => {
 const { username, password, idEmployee,email} = req.body;
-console.log(body);
+console.log(req.body);
 
     try {
         // Verifica se o usuário já existe
