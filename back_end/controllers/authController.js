@@ -17,7 +17,6 @@ console.log(req.body);
         if (existingUser) {
             return res.status(400).json({ error: 'Usuário já existe' });
         }
-        print(req.body)
         // Criptografa a senha antes de salvar no banco
         const hashedPassword = await bcrypt.hash(password, 10);
 
@@ -47,8 +46,9 @@ exports.login = async (req, res) => {
         if (!isMatch) return res.status(400).json({
              error: 'Senha incorreta' });
 
+        console.log("Login realizado");
         
-        res.status(200).json({message: "Login realizado"});
+        res.status(200);
     } catch (error) {
         console.error(error); // Loga o erro
         res.status(500).json({ error: 'Erro ao fazer login' });
