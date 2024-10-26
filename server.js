@@ -7,6 +7,8 @@ const cors = require('cors')
 const bodyParser = require('body-parser');
 // inicialização do app
 
+
+
 const app = express();
 app.use(cors());
 app.use(cors({
