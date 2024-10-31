@@ -5,6 +5,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const bodyParser = require('body-parser');
+const path = require("path")
 // inicialização do app
 
 
@@ -32,6 +33,7 @@ mongoose.connect('mongodb+srv://thiagocontato1232:123123123@library.bayuj.mongod
 const bookRoutes = require('./livraria_api/books');
 app.use('/api/books',bookRoutes); // irá retornar a rota dos livros
 app.use('/api/auth',authRoutes);
+
 // Define a porta do servidor
 app.listen(5000,()=>{
     console.log('Servidor executando na porta 5000');

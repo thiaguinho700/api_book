@@ -18,10 +18,7 @@ const BookSchema = new mongoose.Schema({
     year: {
         type: Number // O ano é opcional
     },
-    image: {
-        data: Buffer, // Armazenar o buffer da imagem
-        contentType: String, // Armazenar o tipo de conteúdo da imagem
-    }
+    image:{type:String, required:true},
 });
 
 // Exportando o modelo para salvar os livros

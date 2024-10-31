@@ -4,66 +4,77 @@ const Book = require('../back_end/models/Books');
 const router = express.Router();
 const mongoose = require('mongoose');
 
-// Set up Multer for handling file uploads
-const storage = multer.memoryStorage();
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'uploads/'); // Diretório onde as imagens serão armazenadas
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + '-' + file.originalname); // Nomeia o arquivo com a data atual e o nome original
+    }
+});
+
 const upload = multer({ storage: storage });
 
-// Define a schema for storing images (if necessary)
-const ImageSchema = new mongoose.Schema({
-    image: Buffer,
-    contentType: String,
-});
-const Image = mongoose.model('Image', ImageSchema);
-
-// Route to create a new book with an image
+// Rota para criar um novo livro com uma imagem
 router.post('/', upload.single('image'), async (req, res) => {
     const { title, author, year } = req.body;
+    const image = req.file ? req.file.path : null; // Verifique se o arquivo foi enviado
 
     try {
+        // Cria uma nova instância de Book e inclui o caminho da imagem
         const newBook = new Book({
             title,
             author,
             year,
-            image: req.file.buffer, // Store image buffer
-            contentType: req.file.mimetype, // Store content type
+            image
         });
-        await newBook.save();
 
+        // Salva o novo livro no banco de dados
+        await newBook.save();
         res.status(201).json(newBook);
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: 'Erro ao cadastrar livro' });
+        console.error('Erro ao cadastrar livro:', error);
+        res.status(500).json({ message: 'Erro ao cadastrar livro', error });
     }
 });
 
-// Route to get all books
+// Rota para obter todos os livros
 router.get('/get', async (req, res) => {
     try {
         const books = await Book.find();
-        console.log("Sucesso");
         res.status(200).json(books);
     } catch (error) {
+        console.error(error);
         res.status(500).json({ message: 'Erro ao buscar os livros', error });
     }
 });
 
-// Route to update a book
+// Rota para atualizar um livro
 router.put('/:id', async (req, res) => {
     const { title, author, year } = req.body;
+
     try {
         const updatedBook = await Book.findByIdAndUpdate(req.params.id, { title, author, year }, { new: true });
+        if (!updatedBook) {
+            return res.status(404).json({ message: 'Livro não encontrado' });
+        }
         res.status(200).json(updatedBook);
     } catch (error) {
+        console.error(error);
         res.status(500).json({ message: 'Erro ao atualizar livro', error });
     }
 });
 
-// Route to delete a book
+// Rota para deletar um livro
 router.delete('/:id', async (req, res) => {
     try {
-        await Book.findByIdAndDelete(req.params.id);
+        const deletedBook = await Book.findByIdAndDelete(req.params.id);
+        if (!deletedBook) {
+            return res.status(404).json({ message: 'Livro não encontrado' });
+        }
         res.status(200).json({ message: 'Livro deletado com sucesso' });
     } catch (error) {
+        console.error(error);
         res.status(500).json({ message: 'Erro ao deletar livro', error });
     }
 });
