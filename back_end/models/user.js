@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema({
     password: { type: String, required: true},
     idEmployee:{ type: String},
     email:{ type: String},
-    image: { type: mongoose.Schema.Types.ObjectId, ref: 'uploads' }
+    image: {type:String}
 })
 
 // Exporta o modelo de usuário

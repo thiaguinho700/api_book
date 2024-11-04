@@ -4,19 +4,8 @@ const Book = require('../back_end/models/Books');
 const router = express.Router();
 const mongoose = require('mongoose');
 
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, 'uploads/'); // Diretório onde as imagens serão armazenadas
-    },
-    filename: function (req, file, cb) {
-        cb(null, Date.now() + '-' + file.originalname); // Nomeia o arquivo com a data atual e o nome original
-    }
-});
-
-const upload = multer({ storage: storage });
-
 // Rota para criar um novo livro com uma imagem
-router.post('/', upload.single('image'), async (req, res) => {
+router.post('/', async (req, res) => {
     const { title, author, year } = req.body;
     const image = req.file ? req.file.path : null; // Verifique se o arquivo foi enviado
 
@@ -39,7 +28,7 @@ router.post('/', upload.single('image'), async (req, res) => {
 });
 
 // Rota para obter todos os livros
-router.get('/get', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const books = await Book.find();
         res.status(200).json(books);

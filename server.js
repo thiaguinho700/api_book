@@ -33,6 +33,7 @@ mongoose.connect('mongodb+srv://thiagocontato1232:123123123@library.bayuj.mongod
 const bookRoutes = require('./livraria_api/books');
 app.use('/api/books',bookRoutes); // irá retornar a rota dos livros
 app.use('/api/auth',authRoutes);
+app.use('/uploads',express.static('uploads'));
 
 // Define a porta do servidor
 app.listen(5000,()=>{
