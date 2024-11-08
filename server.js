@@ -13,7 +13,7 @@ const path = require("path")
 const app = express();
 app.use(cors());
 app.use(cors({
-    origin: ['https://api-book-bw94.onrender.com', "http://localhost:8080/"]
+    origin: ['https://api-book-bw94.onrender.com', "http://localhost:8080/", "http://localhost:8080/allBooksPage"]
   }));
 app.options('*', cors());
 app.use(express.json());

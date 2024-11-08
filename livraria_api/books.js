@@ -1,33 +1,61 @@
 const express = require('express');
-const multer = require('multer');
 const Book = require('../back_end/models/Books');
 const router = express.Router();
-const mongoose = require('mongoose');
 
-// Rota para criar um novo livro com uma imagem
 router.post('/', async (req, res) => {
-    const { title, author, year } = req.body;
-    const image = req.file ? req.file.path : null; // Verifique se o arquivo foi enviado
+    async (req, res) => {
+        const { title, author, year } = req.body;
+        const image = req.file ? req.file.path : null;
+        try {
 
-    try {
-        // Cria uma nova instância de Book e inclui o caminho da imagem
-        const newBook = new Book({
-            title,
-            author,
-            year,
-            image
-        });
+            const newBook = new Book({
+                title,
+                author,
+                year,
+                image
+            });
+            await newBook.save();
+            res.status(201).json(newBook);
 
-        // Salva o novo livro no banco de dados
-        await newBook.save();
-        res.status(201).json(newBook);
-    } catch (error) {
-        console.error('Erro ao cadastrar livro:', error);
-        res.status(500).json({ message: 'Erro ao cadastrar livro', error });
+        } catch (error) {
+            console.error('Erro ao cadastrar livro:', error);
+            res.status(500).json({ message: 'Erro ao cadastrar livro', error });
+        }
     }
+
 });
 
-// Rota para obter todos os livros
+exports.register = [
+    async (req, res) => {
+        const { username, password, idEmployee, email } = req.body;
+
+        try {
+            const existingUser = await User.findOne({ username });
+            if (existingUser) {
+                return res.status(400).json({ error: 'Usuário já existe' });
+            }
+
+            const hashedPassword = await bcrypt.hash(password, 10);
+
+            const newUser = new User({
+                username,
+                password: hashedPassword,
+                idEmployee,
+                email,
+                image: req.file.path
+            });
+
+            await newUser.save();
+            res.status(201).json({ message: 'Usuário registrado com sucesso' });
+
+        } catch (error) {
+            console.log(error);
+            res.status(500).json({ error: 'Erro ao registrar usuário' });
+        }
+    }
+];
+
+
 router.get('/', async (req, res) => {
     try {
         const books = await Book.find();
@@ -38,7 +66,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-// Rota para atualizar um livro
+
 router.put('/:id', async (req, res) => {
     const { title, author, year } = req.body;
 
@@ -54,7 +82,7 @@ router.put('/:id', async (req, res) => {
     }
 });
 
-// Rota para deletar um livro
+
 router.delete('/:id', async (req, res) => {
     try {
         const deletedBook = await Book.findByIdAndDelete(req.params.id);
