@@ -9,16 +9,14 @@ const upload = multer({ storage: storage });
 const BookSchema = new mongoose.Schema({
     title: {
         type: String,
-        required: true // O título é obrigatório
     },
     author: {
         type: String,
-        required: true // O autor é obrigatório
     },
     year: {
         type: Number // O ano é opcional
     },
-    image:{type:String, required:true},
+    image:{type:String},
 });
 
 // Exportando o modelo para salvar os livros

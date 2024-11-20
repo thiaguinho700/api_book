@@ -10,7 +10,7 @@ router.post('/register',authController.register)
 
 router.post('/login',authController.login);
 
-module.exports = router;
+module.exports = router
 */
 const upload = require("../back_end/controllers/authController")
 
