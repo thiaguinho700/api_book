@@ -28,7 +28,7 @@ exports.upload = multer({
   },
 });
 
-exports.register = [
+exports.  register = [
   async (req, res) => {
     const { username, password, idEmployee, email } = req.body;
 
