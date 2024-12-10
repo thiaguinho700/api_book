@@ -28,7 +28,7 @@ exports.upload = multer({
   },
 });
 
-exports.  register = [
+exports.register = [
   async (req, res) => {
     const { username, password, idEmployee, email } = req.body;
 
@@ -49,7 +49,7 @@ exports.  register = [
       });
 
       await newUser.save();
-      res.status(201).json({ message: "Usuário registrado com sucesso" });
+      res.status(201).json(newUser);
     } catch (error) {
       console.log(error);
       res.status(500).json({ error: "Erro ao registrar usuário" });
@@ -68,7 +68,7 @@ exports.login = async (req, res) => {
     if (!isMatch) return res.status(400).json({ error: "Senha incorreta" });
 
     console.log("Login realizado");
-    res.status(200).json({ message: "Login realizado com sucesso", user });
+    res.status(200).json({username, password});
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Erro ao fazer login" });
