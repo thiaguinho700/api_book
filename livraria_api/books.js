@@ -35,13 +35,14 @@ router.post(
   "/",
   upload.single("image"), // "image" deve ser o nome do campo do arquivo no formulário
   async (req, res) => {
-    const { title, author, year } = req.body;
+    const { title, author, year, about } = req.body;
 
     try {
       const newBook = new BookSchema({
         title,
         author,
         year,
+        about,
         image: req.file?.path, // Certifique-se de usar o caminho do arquivo corretamente
       });
 
@@ -53,6 +54,32 @@ router.post(
     }
   }
 );
+router.post("/search", async (req, res) => {
+  const { title } = req.body; // Recebe o título como query parameter
+  console.log(title);
+  
+  try {
+    if (!title) {
+      return res.status(400).json({ message: "Por favor, forneça um título para buscar." });
+    }
+
+    // Busca no MongoDB todos os livros cujo título contenha o texto fornecido (case insensitive)
+    const books = await BookSchema.find({
+      title: { $regex: new RegExp(title, "i") }, // Regex para buscar de forma insensível a maiúsculas e minúsculas
+    });
+
+    if (books.length === 0) {
+      alert("Nenhum livro encontrado com esse título.")
+      return res.status(404).json({ message: "Nenhum livro encontrado com esse título." });
+    }
+
+    res.status(200).json(books);
+  } catch (error) {
+    console.error("Erro ao buscar livros:", error);
+    res.status(500).json({ message: "Erro ao buscar livros", error });
+  }
+});
+
 
 router.get("/", async (req, res) => {
   try {

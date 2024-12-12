@@ -16,6 +16,9 @@ const BookSchema = new mongoose.Schema({
     year: {
         type: Number // O ano é opcional
     },
+    about: {
+        type:String // O ano é opcional
+    },
     image:{type:String},
 });
 
