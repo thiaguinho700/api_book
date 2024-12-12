@@ -30,7 +30,7 @@ router.post('/login', authController.login);
 router.get("/", async (req, res) => {
     try {
       const books = await userList.find();
-      res.status(200).json(books);
+      res.status(210).json(books);
     } catch (error) {
       console.error(error);
       res.status(500).json({ message: "Erro ao buscar os livros", error });
