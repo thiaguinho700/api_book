@@ -46,6 +46,7 @@ exports.register = [
         idEmployee,
         email,
         image: req.file.path,
+        isOn:true
       });
 
       await newUser.save();
@@ -63,7 +64,7 @@ exports.login = async (req, res) => {
   try {
     const user = await User.findOne({ username });
     if (!user) return res.status(400).json({ error: "Usuário não encontrado" });
-
+    
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) return res.status(400).json({ error: "Senha incorreta" });
 

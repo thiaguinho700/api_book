@@ -36,6 +36,45 @@ router.get("/", async (req, res) => {
       res.status(500).json({ message: "Erro ao buscar os livros", error });
     }
   });
+
+router.get("/", async (req, res) => {
+    try {
+      const books = await userList.find();
+      res.status(210).json(books);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "Erro ao buscar os livros", error });
+    }
+  });
   
+router.patch("/:id", async (req, res) => {
+  const {username,
+    password,
+    idEmployee,
+    email,
+    image,
+    isOn,
+    borrow } = req.body;
+
+  try {
+    const updatedBook = await userList.findByIdAndUpdate(
+      req.params.id,
+      { username,
+        password,
+        idEmployee,
+        email,
+        image,
+        isOn,borrow },
+      { new: true }
+    );
+    if (!updatedBook) {
+      return res.status(404).json({ message: "Livro não encontrado" });
+    }
+    res.status(200).json(updatedBook);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Erro ao atualizar livro", error });
+  }
+});
 
 module.exports = router;

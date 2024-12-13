@@ -44,6 +44,7 @@ router.post(
         year,
         about,
         image: req.file?.path, // Certifique-se de usar o caminho do arquivo corretamente
+        borrow:'Disponivel'
       });
 
       await newBook.save();
@@ -59,7 +60,7 @@ router.post("/search", async (req, res) => {
   console.log(title);
   
   try {
-    if (!title) {
+   if (!title) {
       return res.status(400).json({ message: "Por favor, forneça um título para buscar." });
     }
 
@@ -92,12 +93,12 @@ router.get("/", async (req, res) => {
 });
 
 router.patch("/:id", async (req, res) => {
-  const { title, author, year } = req.body;
+  const { title, author, year, borrow } = req.body;
 
   try {
     const updatedBook = await BookSchema.findByIdAndUpdate(
       req.params.id,
-      { title, author, year },
+      { title, author, year, borrow},
       { new: true }
     );
     if (!updatedBook) {

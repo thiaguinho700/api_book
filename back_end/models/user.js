@@ -7,7 +7,8 @@ const userSchema = new mongoose.Schema({
     password: { type: String, required: true},
     idEmployee:{ type: String},
     email:{ type: String},
-    image: {type:String}
+    image: {type:String},
+    isOn:{type: Boolean}
 })
 
 // Exporta o modelo de usuário
